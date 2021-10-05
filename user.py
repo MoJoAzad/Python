@@ -1,35 +1,28 @@
 class User:
-    def __init__(self, name, email):
+    def __init__(self, name):
         self.name=name
-        self.email=email
-        self.account_balance=1000
+        self.amount=1000
+
     def make_deposit(self, amount):
-        self.account_balance+=amount
+        self.amount+=amount
+        return self
+
     def make_withdrawl(self, amount):
-        self.account_balance-=amount
-    # def transfer_money(self, other_user,amount):
-        
+        self.amount-=amount
+        return self
 
-        User("Mohammed", "MoMo@email.com")
-Mohammed=User("Mohammed", "MoMo@email.com")
-David=User("David", "david@gamil.com")
-Natasha=User("Natasha", "N@yahoo.com")
+    def display_user_balance(self):
+        print(f"User:{self.name}, Balance:{self.amount}")
 
-Mohammed.make_withdrawl(100)
-Mohammed.make_deposit(200)
-Mohammed.make_deposit(50)
-Mohammed.make_deposit(45)
+User('Mohammed')
+Mohammed=User("Mohammed")
+David=User("David")
+Natasha=User("Natasha")
 
-David.make_withdrawl(200)
-David.make_withdrawl(200)
-David.make_deposit(300)
-David.make_deposit(15)
+Mohammed.make_withdrawl(100).make_deposit(200).make_deposit(50).make_deposit(45).display_user_balance()
 
-Natasha.make_deposit(500)
-Natasha.make_withdrawl(200)
-Natasha.make_withdrawl(5)
-Natasha.make_withdrawl(150)
+David.make_withdrawl(200).make_withdrawl(200).make_deposit(300).make_deposit(15).display_user_balance()
 
-print(Mohammed.name, '$',Mohammed.account_balance)
-print(David.name, '$', David.account_balance)
-print(Natasha.name, '$', Natasha.account_balance)
+Natasha.make_deposit(500).make_withdrawl(200).make_withdrawl(5).make_withdrawl(150).display_user_balance()
+
+
