@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/css/style.css') }}">
+    <style>
+        .red {
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+
+        .blue {
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+
+        h1 {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <title>checkeerboard</title>
+</head>
+
+<body>
+    <h1>***Checkerboard***</h1>
+    <table>
+        {% for i in range(int): %}
+        <tr>
+            {% for j in range(int): %}
+            {%if color%}
+            <td class="red" style="background-color: {{color}}"></td>
+            {% else %}
+            <td class="red"></td>
+            {% endif %}
+            <td class="blue"></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for j in range(int): %}
+            <td class="blue"></td>
+            {%if color%}
+            <td class="red" style="background-color: {{color}}"></td>
+            {% else %}
+            <td class="red"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
